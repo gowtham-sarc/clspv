@@ -1,0 +1,5 @@
+buildconfig = "//utils/gn/BUILDCONFIG.gn"
+
+script_executable = "python3"
+
+secondary_source = "//utils/gn/"

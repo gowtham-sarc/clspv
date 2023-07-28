@@ -1,0 +1,13 @@
+# Top-level build flags
+# Uses the same structure as of angle and spirv-tools build
+
+declare_args() {
+  build_with_chromium = false
+  ignore_elf32_limitations = true
+}
+
+# These are all needed for building spvtools
+# TODO set them up on top level build appropriately
+is_win = false
+is_clang = false
+is_ios = false

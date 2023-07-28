@@ -1,0 +1,25 @@
+import("//build_overrides/llvm.gni")
+
+config("clspv_reflection_config") {
+  # include deps
+  include_dirs = [ "//third_party/SPIRV-Tools/include" ]
+
+  configs = [ "//lib:clspv_common_config" ]
+}
+
+executable("clspv-reflection") {
+  sources = [
+    "//tools/reflection/ReflectionParser.cpp",
+    "//tools/reflection/main.cpp",
+  ]
+
+  configs += [ ":clspv_reflection_config" ]
+
+  include_dirs = [ "$root_gen_dir/lib/" ]
+
+  deps = [
+    "//lib:clspv_core",
+    "//lib:clspv_reflection",
+    "//third_party/SPIRV-Tools:spvtools_link",
+  ]
+}

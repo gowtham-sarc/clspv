@@ -1,0 +1,2 @@
+llvm_root = "third_party/llvm/"
+llvm_build_root = "third_party/llvm/llvm/utils/gn/"

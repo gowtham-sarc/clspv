@@ -1,0 +1,15 @@
+import("//build_overrides/llvm.gni")
+import("//build_overrides/spirv_tools.gni")
+
+print("Using ${llvm_root} as root for LLVM source tree")
+print("Using ${llvm_build_root} for the LLVM build related gn files")
+print("Using spirv headers from ${spirv_tools_spirv_headers_dir}")
+
+group("default") {
+  deps = [
+    "//lib:clspv_c_strings",
+    "//tools/clspv-opt",
+    "//tools/driver:clspv",
+    "//tools/reflection:clspv-reflection",
+  ]
+}
