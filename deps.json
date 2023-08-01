@@ -3,10 +3,10 @@
     {
       "name" : "llvm",
       "site" : "github",
-      "subrepo" : "llvm/llvm-project",
-      "branch" : "main",
+      "subrepo" : "gowtham-sarc/llvm-project.git",
+      "branch" : "dev/gn/add-build-overrides",
       "subdir" : "third_party/llvm",
-      "commit" : "76f20099a5ab72a261661ecb545dceed52e5592d"
+      "commit" : "25a7304d8eb2a26ae7c9ecc79e110ec829a28bed"
     },
     {
       "name" : "SPIRV-Headers",
