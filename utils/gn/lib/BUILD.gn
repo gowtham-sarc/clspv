@@ -221,7 +221,9 @@ source_set("clspv_passes") {
 
   configs += [ ":clspv_common_config" ]
 
-  deps = [
+  deps = [ "//:llvm-gn-files" ]
+
+  deps += [
     ":clspv_c_strings",
     ":clspv_glsl",
     ":clspv_reflection",
