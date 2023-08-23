@@ -26,10 +26,14 @@ symlink_dir("llvm-gn-files") {
   output = llvm_symlink_target
 }
 
-group("default") {
+group("clspv-default-artifacts") {
   deps = [
     "//tools/clspv-opt",
     "//tools/driver:clspv",
     "//tools/reflection:clspv-reflection",
   ]
+}
+
+group("default") {
+  deps = [ ":clspv-default-artifacts" ]
 }
