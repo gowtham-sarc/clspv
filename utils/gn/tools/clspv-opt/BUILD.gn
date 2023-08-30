@@ -5,7 +5,7 @@ import("//build_overrides/llvm.gni")
 config("clspv_opt_config") {
   # include deps
   include_dirs = [
-    "//include",
+    "../../include",
     "//{llvm_root}llvm/tools/opt",
   ]
 
@@ -13,9 +13,9 @@ config("clspv_opt_config") {
 }
 
 executable("clspv-opt") {
-  sources = [ "//tools/clspv-opt/main.cpp" ]
+  sources = [ "main.cpp" ]
 
   configs += [ ":clspv_opt_config" ]
 
-  deps = [ "//lib:clspv_passes" ]
+  deps = [ "../../lib:clspv_passes" ]
 }

@@ -1,15 +1,15 @@
 import("//build_overrides/llvm.gni")
 
 config("clspv_driver_config") {
-  configs = [ "//lib:clspv_common_config" ]
+  configs = [ "../../lib:clspv_common_config" ]
 }
 
 executable("clspv") {
-  sources = [ "//tools/driver/main.cpp" ]
+  sources = [ "main.cpp" ]
 
   configs += [ ":clspv_driver_config" ]
 
   include_dirs = [ "$root_gen_dir/lib/" ]
 
-  deps = [ "//lib:clspv_core" ]
+  deps = [ "../../lib:clspv_core" ]
 }

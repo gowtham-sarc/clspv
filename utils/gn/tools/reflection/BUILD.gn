@@ -4,22 +4,22 @@ config("clspv_reflection_config") {
   # include deps
   include_dirs = [ "//third_party/SPIRV-Tools/include" ]
 
-  configs = [ "//lib:clspv_common_config" ]
+  configs = [ "../../lib:clspv_common_config" ]
 }
 
 executable("clspv-reflection") {
   sources = [
-    "//tools/reflection/ReflectionParser.cpp",
-    "//tools/reflection/main.cpp",
+    "ReflectionParser.cpp",
+    "main.cpp",
   ]
 
   configs += [ ":clspv_reflection_config" ]
 
-  include_dirs = [ "$root_gen_dir/lib/" ]
+  include_dirs = [ "$root_gen_dir" ]
 
   deps = [
-    "//lib:clspv_core",
-    "//lib:clspv_reflection",
+    "../../:clspv_reflection",
+    "../../lib:clspv_core",
     "//third_party/SPIRV-Tools:spvtools_link",
   ]
 }
