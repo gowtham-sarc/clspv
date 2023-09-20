@@ -11,7 +11,7 @@ print("Using spirv headers from ${spirv_tools_spirv_headers_dir}")
 llvm_secondary_source = "//${llvm_build_root}secondary/"
 llvm_symlink_target = "//utils/gn/${llvm_root}"
 llvm_symlink_stamp = "${root_build_dir}/llvm_symlink.stamp"
-exec_script("//scripts/symlink_or_copydir.py",
+exec_script("./scripts/symlink_or_copydir.py",
             [
               "--stamp",
               rebase_path(llvm_symlink_stamp, root_build_dir),

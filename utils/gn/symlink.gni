@@ -10,7 +10,7 @@ template("symlink_dir") {
             target_name + ".stamp"
 
     outputs = [ stamp ]
-    script = "//utils/gn/scripts/symlink_or_copydir.py"
+    script = "./utils/gn/scripts/symlink_or_copydir.py"
 
     args = [
       "--stamp",
