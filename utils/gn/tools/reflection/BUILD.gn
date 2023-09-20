@@ -1,8 +1,9 @@
 import("//build_overrides/llvm.gni")
+import("//build_overrides/spirv_tools.gni")
 
 config("clspv_reflection_config") {
   # include deps
-  include_dirs = [ "//third_party/SPIRV-Tools/include" ]
+  include_dirs = [ "${spirv_tools_spirv_headers_dir}/include" ]
 
   configs = [ "../../lib:clspv_common_config" ]
 }
@@ -18,8 +19,8 @@ executable("clspv-reflection") {
   include_dirs = [ "$root_gen_dir" ]
 
   deps = [
+    "${spirv_tools_dir}:spvtools_link",
     "../../:clspv_reflection",
     "../../lib:clspv_core",
-    "//third_party/SPIRV-Tools:spvtools_link",
   ]
 }
