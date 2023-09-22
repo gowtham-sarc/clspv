@@ -1,3 +1,4 @@
+import("//build_overrides/clspv.gni")
 import("//build_overrides/llvm.gni")
 
 config("clspv_driver_config") {
@@ -8,6 +9,8 @@ executable("clspv") {
   sources = [ "main.cpp" ]
 
   configs += [ ":clspv_driver_config" ]
+  configs += clspv_configs_overrides_append
+  configs -= clspv_configs_overrides_remove
 
   include_dirs = [ "$root_gen_dir/lib/" ]
 

@@ -1,0 +1,7 @@
+# Clspv build overrides for GN
+# Any configuration that could be overridden from a top-level build where clspv
+# is a third-party module goes in here.
+
+# configs that need adjustment
+clspv_configs_overrides_append = []
+clspv_configs_overrides_remove = []

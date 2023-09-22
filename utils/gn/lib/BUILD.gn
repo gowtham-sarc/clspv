@@ -1,3 +1,4 @@
+import("//build_overrides/clspv.gni")
 import("//build_overrides/llvm.gni")
 import("//build_overrides/spirv_tools.gni")
 
@@ -7,14 +8,9 @@ import("//build_overrides/spirv_tools.gni")
 # a common config that will be used by all the clspv targets
 config("clspv_common_config") {  # __has_feature(cxx_range_for) -- how do we
                                  # check this?
-  configs = [
-    "//${llvm_build_root}build:llvm_code",
-    "//${llvm_build_root}build:clang_code",
-  ]
-
   include_dirs = [
     "../include",
-    "//third_party/SPIRV-Headers/include",
+    "${spirv_tools_spirv_headers_dir}/include",
   ]
 }
 
@@ -101,6 +97,8 @@ source_set("clspv_passes") {
   ]
 
   configs += [ ":clspv_common_config" ]
+  configs += clspv_configs_overrides_append
+  configs -= clspv_configs_overrides_remove
 
   deps = [ "../:llvm-gn-files" ]
 
@@ -108,6 +106,10 @@ source_set("clspv_passes") {
     "../:clspv_c_strings",
     "../:clspv_glsl",
     "../:clspv_reflection",
+  ]
+  public_configs = [
+    "//${llvm_build_root}build:llvm_code",
+    "//${llvm_build_root}build:clang_code",
   ]
 
   # need generated includes from the action scripts
@@ -135,6 +137,8 @@ static_library("clspv_core") {
   sources = clspv_core_sources
 
   configs += [ ":clspv_common_config" ]
+  configs += clspv_configs_overrides_append
+  configs -= clspv_configs_overrides_remove
 
   deps = [
     "//${llvm_root}clang/lib/AST",
