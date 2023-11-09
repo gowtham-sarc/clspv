@@ -73,18 +73,30 @@ if (current_cpu == "") {
 }
 
 # BUILD FLAGS
-declare_args() {
-  # Build for debugging. Equivalent to is_optimized=false symbol_level=2.
-  is_debug = false
+# FIXME This needs to come from here, for now picking it up from
+# $clspv_llvm_dir/llvm/utils/gn/build/buildflags.gni
+if (false) {
+  declare_args() {
+    # Build for debugging. Equivalent to is_optimized=false symbol_level=2.
+    is_debug = false
+  }
+
+  # args that depend on other args must live in a later declare_args() block.
+  declare_args() {
+    if (is_debug) {
+      # Debug info symbol level. 0: No symbols; 1: Line numbers; 2: Full symbols.
+      symbol_level = 2
+    } else {
+      # Debug info symbol level. 0: No symbols; 1: Line numbers; 2: Full symbols.
+      symbol_level = 0
+    }
+  }
 }
 
-# args that depend on other args must live in a later declare_args() block.
 declare_args() {
-  if (is_debug) {
-    # Debug info symbol level. 0: No symbols; 1: Line numbers; 2: Full symbols.
-    symbol_level = 2
-  } else {
-    # Debug info symbol level. 0: No symbols; 1: Line numbers; 2: Full symbols.
-    symbol_level = 0
-  }
+  sysroot = ""
+}
+
+declare_args() {
+  llvm_enable_terminfo = false
 }

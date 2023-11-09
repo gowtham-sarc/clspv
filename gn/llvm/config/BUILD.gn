@@ -2,13 +2,30 @@ import("//build_overrides/clspv.gni")
 
 import("//$clspv_llvm_dir/llvm/utils/gn/build/buildflags.gni")
 import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/curl/enable.gni")
-import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/edit/enable.gni")
-import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/pthread/enable.gni")
-import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/terminfo/enable.gni")
-import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/xar/enable.gni")
-import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/xml/enable.gni")
-import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/zlib/enable.gni")
-import("//$clspv_llvm_dir/llvm/utils/gn/build/write_cmake_config.gni")
+
+#llvm_enable_libcurl = false
+#import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/edit/enable.gni")
+
+llvm_enable_libedit = false
+
+#import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/pthread/enable.gni")
+
+llvm_enable_threads = true
+
+#import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/terminfo/enable.gni")
+#llvm_enable_terminfo = false
+#import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/xar/enable.gni")
+
+llvm_enable_libxar = false
+
+#import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/xml/enable.gni")
+
+llvm_enable_libxml2 = true
+
+#import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/zlib/enable.gni")
+
+llvm_enable_zlib = true
+import("//gn/llvm/write_cmake_config.gni")
 
 import(
     "//$clspv_llvm_dir/llvm/utils/gn/secondary/llvm/lib/DebugInfo/PDB/enable_dia.gni")

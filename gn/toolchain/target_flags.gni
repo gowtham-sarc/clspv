@@ -1,7 +1,7 @@
 import("//build_overrides/clspv.gni")
 
 # Based on LLVM `utils/gn/build/toolchain/target_flags.gni`
-import("//$clspv_llvm_dir/llvm/utils/gn/build/mac_sdk.gni")
+#import("//$clspv_llvm_dir/llvm/utils/gn/build/mac_sdk.gni")
 import("//gn/toolchain/compiler.gni")
 import("//gn/triples.gni")
 

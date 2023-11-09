@@ -1,12 +1,14 @@
 import("//build_overrides/clspv.gni")
 
-import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/xml/enable.gni")
-import("//$clspv_llvm_dir/llvm/utils/gn/build/write_cmake_config.gni")
+llvm_enable_libxml2 = true
+
+#import("//$clspv_llvm_dir/llvm/utils/gn/build/libs/xml/enable.gni")
 import(
     "//$clspv_llvm_dir/llvm/utils/gn/secondary/clang/lib/ARCMigrate/enable.gni")
 import(
     "//$clspv_llvm_dir/llvm/utils/gn/secondary/clang/lib/StaticAnalyzer/Frontend/enable.gni")
 import("//$clspv_llvm_dir/llvm/utils/gn/secondary/llvm/version.gni")
+import("//gn/llvm/write_cmake_config.gni")
 import("//gn/llvm/write_vcsrevision.gni")
 
 # from include/clang/Basic
